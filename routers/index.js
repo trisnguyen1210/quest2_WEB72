@@ -1,12 +1,12 @@
-import postsRouter from './posts.js';
-import commentsRouter from './comments.js';
-import usersRouter from './users.js';
 import express from 'express';
-
+import { getAllProduct, getProductLowQuantity } from '../controllers/product.js';
+import { login } from '../controllers/users.js';
+import { getOrderByID } from '../controllers/order.js';
 const router = express.Router()
 
-router.use('/posts', postsRouter)
-router.use('/comments', commentsRouter)
-router.use('/users', usersRouter)
+router.post('/login', login)
+router.get('/product', getAllProduct)
+router.get('/product-lowquantity', getProductLowQuantity)
+router.get('/order/:id', getOrderByID)
 
 export default router;
